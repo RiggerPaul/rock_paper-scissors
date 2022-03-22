@@ -27,28 +27,30 @@ function playRound(playerSelection, computerSelection) {
   else if (playerSelection === "rock" && computerSelection === "scissors") {
       //alert("You win! - Rock beats Scissors");
       console.log("You win! - Rock beats Scissors");
-      numberOfWins = numberOfWins + 1;
+      humanScore = humanScore + 1;
   }
   //check if human paper beats computer and add 1 to numberOfWins
   else if (playerSelection === "paper" && computerSelection === "rock") {
       //alert("You win! - Paper beats Rock");
       console.log("You win! - Paper beats Rock");
-      numberOfWins = numberOfWins + 1;
+      humanScore = humanScore + 1;
   }
   //check if human scissors beats computer and add 1 to numberOfWins
   else if (playerSelection === "scissors" && computerSelection === "paper") {
       //alert("You win! - Scissors beat Paper");
       console.log("You win! - Scissors beat Paper");
-      numberOfWins = numberOfWins + 1;
+      humanScore = humanScore + 1;
   }
   else {
       //alert("You lose!");
       console.log("You lose!");
+      computerScore = computerScore + 1;
   }
 }
 
 //Initialize variable to hold number of wins for the player
-let numberOfWins = 0;
+let humanScore = 0;
+let computerScore = 0;
 
 //Initialize variable to computer choice word
 let computerWord = "";
@@ -69,7 +71,15 @@ for (let i = 0; i < 5; i++) {
 }
 
 //Display the numberOfWins for the human player    
-alert(`You won ${numberOfWins} times out of 5`);
+if (humanScore === computerScore) {
+    alert(`You scored ${humanScore} wins out of 5 but it is a draw - the AI is catching up`);
+}
+else if (humanScore > computerScore) {
+    alert(`You scored ${humanScore} wins out of 5 and you won the challenge! - the world is safe from the AI`);
+}
+else if (humanScore < computerScore) {
+    alert(`You scored ${humanScore} wins out of 5 but you lost the challenge! - the AI has taken over the world`);
+}
 
 </script>
 
