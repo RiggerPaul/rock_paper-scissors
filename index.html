@@ -18,12 +18,11 @@ function computerPlay() {
 //Compare computer choice and human choice
 function playRound(playerSelection, computerSelection) {
   
-  //check if human choice beats computer choice or a draw and add 1 to numberOfWins
+  //check if human choice beats computer choice (or a draw) and increment correct score
   if (playerSelection === computerSelection) {
       //alert("It is a draw");
       console.log("It is a draw");
   }
-  //check if human choice beats computer choice and add 1 to numberOfWins
   else if (playerSelection === "rock" && computerSelection === "scissors") {
       console.log("You win! - Rock beats Scissors");
       humanScore = humanScore + 1;
@@ -64,7 +63,7 @@ for (let i = 0; i < 5; i++) {
 
 //Display the numberOfWins for the human player    
 if (humanScore === computerScore) {
-    alert(`You scored ${humanScore} wins out of 5 but it is a draw - the AI is catching up`);
+    alert(`You scored ${humanScore} wins out of 5 but it is a draw - the AI is learning`);
 }
 else if (humanScore > computerScore) {
     alert(`You scored ${humanScore} wins out of 5 and you won the challenge! - the world is safe from the AI`);
