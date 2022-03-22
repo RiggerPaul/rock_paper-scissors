@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper, Scissors</title>
+</head>
+
+<script>
+
+//Randomly select rock, paper or scissors for computer player
+function computerPlay() {
+    let words = ["Rock","Paper","Scissors"];
+    return words[Math.floor(Math.random() * words.length)];
+}
+
+//Compare computer choice and human choice
+function playRound(playerSelection, computerSelection) {
+  
+  //check if it is a draw
+  if (playerSelection === computerSelection) {
+      //alert("It is a draw");
+      console.log("It is a draw");
+  }
+  //check if human rock beats computer and add 1 to numberOfWins
+  else if (playerSelection === "rock" && computerSelection === "scissors") {
+      //alert("You win! - Rock beats Scissors");
+      console.log("You win! - Rock beats Scissors");
+      numberOfWins = numberOfWins + 1;
+  }
+  //check if human paper beats computer and add 1 to numberOfWins
+  else if (playerSelection === "paper" && computerSelection === "rock") {
+      //alert("You win! - Paper beats Rock");
+      console.log("You win! - Paper beats Rock");
+      numberOfWins = numberOfWins + 1;
+  }
+  //check if human scissors beats computer and add 1 to numberOfWins
+  else if (playerSelection === "scissors" && computerSelection === "paper") {
+      //alert("You win! - Scissors beat Paper");
+      console.log("You win! - Scissors beat Paper");
+      numberOfWins = numberOfWins + 1;
+  }
+  else {
+      //alert("You lose!");
+      console.log("You lose!");
+  }
+}
+
+//Initialize variable to hold number of wins for the player
+let numberOfWins = 0;
+
+//Initialize variable to computer choice word
+let computerWord = "";
+
+//Play for 5 rounds
+for (let i = 0; i < 5; i++) {
+
+    //Ask human player to enter rock, paper or scissors
+    let playerSelection = prompt("What's your choice?");
+    playerSelection = playerSelection.toLowerCase();
+
+    //Call function to select random computer player word
+    let computerSelection = computerPlay();
+    computerSelection = computerSelection.toLowerCase();
+
+    //Call function to check result
+    playRound(playerSelection, computerSelection);
+}
+
+//Display the numberOfWins for the human player    
+alert(`You won ${numberOfWins} times out of 5`);
+
+</script>
+
+<body>
+    
+</body>
+</html>
